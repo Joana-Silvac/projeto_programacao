@@ -22,7 +22,7 @@ public class Front {
         login_cadastro.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                janela_principal.dispose();
+                janela_principal.setVisible(false);
 
 
                 janela_usuario.setBounds(400,100,730,460);
@@ -51,10 +51,12 @@ public class Front {
 
                 JTextField email_usuario = new JTextField();
                 email_usuario.setBounds(50,160,400,35);
+                String email_usuarioText = email_usuario.getText();
                 janela_usuario.add(email_usuario);
 
                 JTextField senha_usuario= new JTextField();
                 senha_usuario.setBounds(50,260,400,35);
+                String senha_usuarioText = senha_usuario.getText();
                 janela_usuario.add(senha_usuario);
 
                 JLabel nome_cadastro = new JLabel("Não possui conta?");
@@ -68,6 +70,75 @@ public class Front {
                 botao_cadastro.setFocusPainted(false);
                 botao_cadastro.setBounds(50,370,170,25);
                 janela_usuario.add(botao_cadastro);
+
+                botao_cadastro.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        janela_usuario.setVisible(false);
+                        JFrame janela_cadastro= new JFrame();
+
+                        janela_cadastro.setBounds(400,100,730,460);
+                        janela_cadastro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        janela_cadastro.setLayout(null);
+                        janela_cadastro.setContentPane(new JLabel(new ImageIcon("cat_sem_nome.png")));
+
+                        JLabel cadastro = new JLabel("Cadastro");
+                        cadastro.setBounds(50,25,600,70);
+                        cadastro.setForeground(Color.black);
+                        cadastro.setFont(new Font("Arial",Font.BOLD,56));
+                        janela_cadastro.add(cadastro);
+
+                        JLabel email = new JLabel("Email");
+                        email.setBounds(50,110,600,20);
+                        email.setForeground(Color.black);
+                        email.setFont(new Font("Arial",Font.BOLD,28));
+                        janela_cadastro.add(email);
+
+                        JTextField email_usuario = new JTextField();
+                        email_usuario.setBounds(50,135,400,35);
+                        String email_usuarioText = email_usuario.getText();
+                        janela_cadastro.add(email_usuario);
+
+                        JLabel nick = new JLabel("Nome de Usuario");
+                        nick.setBounds(50,180,600,32);
+                        nick.setForeground(Color.black);
+                        nick.setFont(new Font("Arial",Font.BOLD,28));
+                        janela_cadastro.add(nick);
+
+                        JTextField nick_name = new JTextField();
+                        nick_name.setBounds(50,215,400,35);
+                        String nickNameText = nick_name.getText();
+                        janela_cadastro.add(nick_name);
+
+                        JLabel senha = new JLabel("Senha");
+                        senha.setBounds(50,260,600,30);
+                        senha.setForeground(Color.black);
+                        senha.setFont(new Font("Arial",Font.BOLD,28));
+                        janela_cadastro.add(senha);
+
+                        JTextField senha_usuario = new JTextField();
+                        senha_usuario.setBounds(50,300,400,35);
+                        String senhaUsuarioText = senha_usuario.getText();
+                        janela_cadastro.add(senha_usuario);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        janela_cadastro.setVisible(true);
+
+                    }
+                });
 
 
                 janela_usuario.setVisible(true);
