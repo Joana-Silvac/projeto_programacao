@@ -107,8 +107,7 @@ public class Front {
 
                         JTextField nick_name = new JTextField();
                         nick_name.setBounds(50,215,400,35);
-                        String nickNameText = nick_name.getText();
-                        janela_cadastro.add(nick_name);
+                        String nickNameText = nick_name.getText();janela_cadastro.add(nick_name);
 
                         JLabel senha = new JLabel("Senha");
                         senha.setBounds(50,260,600,30);
@@ -121,6 +120,10 @@ public class Front {
                         String senhaUsuarioText = senha_usuario.getText();
                         janela_cadastro.add(senha_usuario);
 
+                        JButton confirmar_cadastro =new JButton("Cadastrar-se");
+                        confirmar_cadastro.setFocusPainted(false);
+                        confirmar_cadastro.setBounds(50,370,170,25);
+                        janela_cadastro.add(confirmar_cadastro);
 
 
 
