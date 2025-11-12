@@ -1,7 +1,6 @@
 import java.util.HashMap;
 
 public class Usuario {
-    private static HashMap<String, Usuario> usuarios= new HashMap<>();
     private String email;
     private String senha;
     private String nick_name;
