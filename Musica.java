@@ -32,8 +32,6 @@ public class Musica {
     public String getGenero(){
         return genero;
     }
-
-    @Override
     public String toString(){
         return "Musica{" +
                 "id=" + id+
