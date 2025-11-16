@@ -69,4 +69,58 @@ public class DeezerAPI {
         }
         return musicas;
     }
+
+//parte de album
+    public List<Album> buscarAlbunsArtista(String artista){
+        return buscarAlbuns("artist:\"" + artista + "\"");
+    }
+
+    public List<Album> buscarAlbumEspecifico(String album){
+        return buscarAlbuns(album);
+    }
+
+    private List<Album>buscarAlbuns(String query){
+        List<Album> albuns= new ArrayList<>();
+
+        try {
+            String urlString= "https://api.deezer.com/search/album?q="+ query.replace(" ", "%20");
+            URL url=new URL(urlString);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+
+            Scanner scanner =new Scanner(conn.getInputStream());
+            String response= scanner.useDelimiter("\\A").next();
+            scanner.close();
+
+            albuns =extrairAlbuns(response);
+
+        }catch(Exception e) {
+            System.out.println("Erro: " + e.toString());
+        }
+
+        return albuns;
+    }
+
+    private List<Album>extrairAlbuns(String json){
+        List<Album>albuns= new ArrayList<>();
+
+        String[] titulos= json.split("\"title\":\"");
+        String[] artistas= json.split("\"name\":\"");
+
+        int count =0;
+        for (int i= 1;i < titulos.length && count < 5; i++){
+            try {
+                String titulo=titulos[i].split("\"")[0];
+                String artista= artistas[i].split("\"")[0];
+
+                if (!titulo.contains("\\u") && !artista.contains("\\u")) {
+                    Album album= new Album(count + 1, titulo, artista, "");
+                    albuns.add(album);
+                    count++;
+                }
+            } catch (Exception e){
+            }
+        }
+        return albuns;
+    }
 }
