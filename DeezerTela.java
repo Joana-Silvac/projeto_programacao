@@ -81,7 +81,8 @@ public class DeezerTela extends JFrame {
     private void visualizarPlaylistSelecionada() {
         int index= playlistsList.getSelectedIndex();
         if (index != -1) {
-            playlistAtual= playlistController.listarPlaylists().get(index);
+            List<Playlist> playlistsUsuario = playlistController.listarPlaylists(usuario.getEmail());
+            playlistAtual = playlistsUsuario.get(index);
             playlistSelecionadaLabel.setText("Playlist: " + playlistAtual.getNome());
             carregarMusicasPlaylist(playlistAtual);
         }
@@ -120,7 +121,7 @@ public class DeezerTela extends JFrame {
 
             if (musicaIndex< resultados.size()) {
                 Musica musicaSelecionada= resultados.get(musicaIndex);
-                playlistController.adicionarMusica(playlistAtual.getId(), musicaSelecionada);
+                playlistController.adicionarMusica(usuario.getEmail(), playlistAtual.getId(), musicaSelecionada);
                 carregarMusicasPlaylist(playlistAtual);
                 carregarPlaylists();
                 JOptionPane.showMessageDialog(this, "Música adicionada à playlist!");
@@ -141,7 +142,7 @@ public class DeezerTela extends JFrame {
                 "Confirmar Exclusão", JOptionPane.YES_NO_OPTION);
 
         if (confirm== JOptionPane.YES_OPTION) {
-            playlistController.excluirPlaylist(playlistAtual.getId());
+            playlistController.excluirPlaylist(usuario.getEmail(), playlistAtual.getId());
             carregarPlaylists();
             playlistAtual= null;
             playlistSelecionadaLabel.setText("Selecione uma playlist");
@@ -167,7 +168,7 @@ public class DeezerTela extends JFrame {
                 "Confirmar Remoção", JOptionPane.YES_NO_OPTION);
 
         if (confirm== JOptionPane.YES_OPTION) {
-            playlistController.removerMusicaPorPosicao(playlistAtual.getId(), musicaIndex);
+            playlistController.removerMusicaPorPosicao(usuario.getEmail(), playlistAtual.getId(), musicaIndex);
             carregarMusicasPlaylist(playlistAtual);
             carregarPlaylists();
             JOptionPane.showMessageDialog(this, "Música removida da playlist!");
@@ -179,7 +180,7 @@ public class DeezerTela extends JFrame {
                 "Digite o nome da nova playlist:", "Nova Playlist", JOptionPane.QUESTION_MESSAGE);
 
         if (nomePlaylist!= null && !nomePlaylist.trim().isEmpty()) {
-            Playlist novaPlaylist= playlistController.criarPlaylist(nomePlaylist.trim());
+            Playlist novaPlaylist= playlistController.criarPlaylist(usuario.getEmail(), nomePlaylist.trim());
             carregarPlaylists();
             JOptionPane.showMessageDialog(this, "Playlist '" + nomePlaylist + "' criada com sucesso!");
         }
@@ -219,7 +220,7 @@ public class DeezerTela extends JFrame {
 
     private void carregarPlaylists() {
         playlistsModel.clear();
-        List<Playlist> playlists= playlistController.listarPlaylists();
+        List<Playlist> playlists= playlistController.listarPlaylists(usuario.getEmail());
 
         for (Playlist playlist: playlists) {
             playlistsModel.addElement(playlist.getNome() +
