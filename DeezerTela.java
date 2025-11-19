@@ -32,7 +32,7 @@ public class DeezerTela extends JFrame {
         this.musicaController= new MusicaController();
         this.albumController= new AlbumController();
 
-        setTitle("Tech Music");
+        setTitle("Tech Music - Bem-vindo, " + usuario.getNick() + "!");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1000, 600);
         setLocationRelativeTo(null);
@@ -271,7 +271,8 @@ public class DeezerTela extends JFrame {
         mainPanel.add(musicasPanel);
         mainPanel.add(resultadosPanel);
 
-        JPanel terminalPanel= new JPanel(new FlowLayout());
+        JPanel terminalPanel=
+                new JPanel(new FlowLayout());
         terminalPanel.setBorder(BorderFactory.createTitledBorder("Buscar Músicas"));
         terminalPanel.add(campoBusca);
         terminalPanel.add(buscarBtn);
@@ -280,10 +281,6 @@ public class DeezerTela extends JFrame {
         add(terminalPanel, BorderLayout.SOUTH);
     }
 
-    public static void main(String[] args){
-        SwingUtilities.invokeLater(() ->{
-            Usuario usuario= new Usuario("teste@email.com", "UsuarioTeste", "senha");
-            new DeezerTela(usuario).setVisible(true);
-        });
-    }
+
+
 }
