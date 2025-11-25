@@ -21,7 +21,7 @@ A estrutura do projeto foi feita da seguinte maneira:
 
 -No Front.java, o usuario terá que cadastrar-se para poder entrar no sistema pelo sistema de login, depois de entrar o usuario será redirecionado a Deezertela.java, responsável por exibir as músicas disponíveis.
 
--O arquivo DeezerAPI.ja tem a responsabilidade de realizar a comunicação com a API pública da Deezer para enviar as informções solicitadas pelo usuario para Deezertela.java
+-O arquivo DeezerAPI tem a responsabilidade de realizar a comunicação com a API pública da Deezer para enviar as informções solicitadas pelo usuario para Deezertela.java
 
 -Os arquivos Musica.java, Album.java, Playlist.java e Usuario.java, cada classe contém seus próprios atributos (como nome da música, nome do álbum, nome da playlist, dados do usuário etc.) e possui um controller correspondente, que gerenciam a listagem, atualização e remoção de dados.
 
