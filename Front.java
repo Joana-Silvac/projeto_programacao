@@ -15,7 +15,7 @@ public class Front {
         janela_principal.setBounds(400,100,730,460);
         janela_principal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         janela_principal.setLayout(null);
-        janela_principal.setContentPane(new JLabel(new ImageIcon("cat.png")));
+        janela_principal.setContentPane(new JLabel(new ImageIcon("cat.jpg")));
 
       ;
 
@@ -33,7 +33,7 @@ public class Front {
                 janela_usuario.setBounds(400,100,730,460);
                 janela_usuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 janela_usuario.setLayout(null);
-                janela_usuario.setContentPane(new JLabel(new ImageIcon("cat_sem_nome.png")));
+                janela_usuario.setContentPane(new JLabel(new ImageIcon("cat_sem_nome.jpg")));
 
                 JButton botao_voltar =new JButton("Voltar");
                 botao_voltar.setFocusPainted(false);
@@ -134,7 +134,7 @@ public class Front {
                         janela_cadastro.setBounds(400,100,730,460);
                         janela_cadastro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         janela_cadastro.setLayout(null);
-                        janela_cadastro.setContentPane(new JLabel(new ImageIcon("cat_sem_nome.png")));
+                        janela_cadastro.setContentPane(new JLabel(new ImageIcon("cat_sem_nome.jpg")));
 
                         JButton botao_voltar =new JButton("Voltar");
                         botao_voltar.setFocusPainted(false);
