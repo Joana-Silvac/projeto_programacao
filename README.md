@@ -13,6 +13,8 @@ DIAGRAMA DE CLASSES UML DO CÓDIGO
 
 O projeto TECH MUSIC foi desenvolvido para funcionar como um aplicativo de música,tendo como inspiração o Deezer, permitindo que o usuário se cadastre,faça login, pesquise músicas e visualize informações obtidas pela API da Deezer. A interface gráfica simula a experiência de um app musical, com navegação entre músicas, álbuns e playlists, e tudo isso de uma forma controla e organizada.
 
+-Para este projeto, é necessário dá um fork no repositório e executar o main no seu  ambiente de Desenvolvimento Integrado (IDE).(não é necessário baixar nenhuma biblioteca).
+
 ---------------TECH MUSIC--------------
 
 A estrutura do projeto foi feita da seguinte maneira:
