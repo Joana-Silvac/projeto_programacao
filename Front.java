@@ -94,6 +94,13 @@ public class Front {
                         String senhaText = new String(senha_usuario.getPassword());
                         String emailText = email_usuario.getText();
 
+                        if(senhaText.isEmpty() || emailText.isEmpty()){
+                            JOptionPane.showMessageDialog(janela_usuario,
+                                    "Preencha todos os campos.");
+                            return;
+
+                        }
+
                         if (usuarios.containsKey(emailText)) {
                             Usuario u = usuarios.get(emailText);
 
@@ -197,26 +204,31 @@ public class Front {
 
 
                                 String emailText = email_usuario.getText();
+                                String nickText = nick_name.getText();
+                                String senhaText = new String(senha_usuario.getPassword());
+
+                                if(senhaText.isEmpty() || nickText.isEmpty() || emailText.isEmpty()){
+                                    JOptionPane.showMessageDialog(janela_cadastro,
+                                            "Preencha todos os campos.");
+                                    return;
+
+                                }
+
                                 if (!emailText.contains("@")){
                                     JOptionPane.showMessageDialog(janela_cadastro,
                                             "É necessário um email com dóminio, ex: @gmail.com");
                                     return;
                                 }
 
-                                String nickText = nick_name.getText();
-                                String senhaText = new String(senha_usuario.getPassword());
+
+
                                 if (senhaText.length()<8){
                                     JOptionPane.showMessageDialog(janela_cadastro,
                                             "Sua senha tem que ter no mínimo 8 caracteres");
                                     return;
 
                                 }
-                                if(senhaText.isEmpty() || nickText.isEmpty() || emailText.isEmpty()){
-                                    JOptionPane.showMessageDialog(janela_cadastro,
-                                            "Algum dos campos está vazio, é necessário preencher todos.");
-                                    return;
 
-                                }
 
 
                                 if (usuarios.containsKey(emailText)) {
